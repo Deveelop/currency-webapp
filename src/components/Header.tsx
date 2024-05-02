@@ -7,9 +7,9 @@ const  Header = () => {
         <span>Currencywise</span>
         <nav>
             <ul className=" flex space-x-6">
-            <li> Currency Converter Calculator</li>
-            <li> Exchange Rate </li>
-            <li>Investment Calculator</li>
+            <li className=" cursor-pointer"> Currency Converter</li>
+            <li  className=" cursor-pointer"> Exchange Rate </li>
+            <li  className=" cursor-pointer">Investment Calculator</li>
             </ul>
            
         </nav>

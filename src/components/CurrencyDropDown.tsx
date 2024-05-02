@@ -5,7 +5,7 @@ import { HiOutlineStar } from 'react-icons/hi';
 type CurrencyDropDownProps = {
   currencies: string[];
   currency?: string
-  selectedCurrency: string;
+  selectedCurrency?: string;
   setCurrency: (currency: string) => void;
   favorites?: string[];
   handleFavorites?: (currency:React.MouseEvent<HTMLButtonElement>) => void;
@@ -37,7 +37,7 @@ const CurrencyDropDown= ({
         onChange={(e) => setCurrency(e.target.value)}
          className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          <hr/>
+         
           {currencies.map((curr) => (
             <option value={curr} key={curr}>
               {curr}

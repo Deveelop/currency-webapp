@@ -8,8 +8,11 @@ function App() {
   
   return (
     <>
-<Header/>
-  <div className="min-h-screen flex flex-col items-center justify-center">
+    <div>
+      
+    </div>
+  <Header/>
+  <div className="container">
     <CurrencyConvert/>
   </div>
     </>
