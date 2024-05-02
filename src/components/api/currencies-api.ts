@@ -76,7 +76,8 @@ try{
    setAmountFunc: setAmount,
    setToCurrencyFunc: setToCurrency,
    setFromCurrencyFunc: setFromCurrency,
-   rateFetch: fetchFxRate
+   rateFetch: fetchFxRate,
+   rates: fxRates
 
   }
 }
