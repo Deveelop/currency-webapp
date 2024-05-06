@@ -7,10 +7,12 @@ const CurrencyConvert = () => {
   
     const [currencies, setCurrencies] = useState<string[]>([])
     const [amount, setAmount] = useState(1)
-    const [ fromCurrency, setFromCurrency] = useState('USD')
-    const [ toCurrency, setToCurrency] = useState('INR');
+    const [ fromCurrency, setFromCurrency] = useState('')
+    const [ toCurrency, setToCurrency] = useState('');
     const [convertedAmount, setConvertedAmount] = useState("")
     const [converting, setConverting] = useState(false)
+    const [error, setError] = useState<string>("");
+    const [favorites, setFavorites] = useState<string[]>(JSON.parse(localStorage.getItem('favorites')) || ["USD", "INR"])
 
    
       
@@ -24,8 +26,9 @@ const CurrencyConvert = () => {
         const res = await fetch("https://api.frankfurter.app/currencies");
         const data = await res.json();
         setCurrencies(Object.keys(data));
+      
       }catch(error){
-        console.error('encountered error', error)
+    
       }
     }
     useEffect(() => {
@@ -44,14 +47,15 @@ const CurrencyConvert = () => {
       setConvertedAmount(data.rates[toCurrency] + " " + toCurrency)
   
      }catch(error){
-      console.error("error occured", error);
+      setError("Please check your network!!");
      } finally {
       setConverting(false)
      }
     }
 
-    const handleFavorites = () => {
-      
+    const handleFavorites = (e) => {
+    
+     
     }
 
     const swapCurrencies = () => {
@@ -67,16 +71,17 @@ const CurrencyConvert = () => {
       <h2 className=" mb-5 text-2xl font-semibold text-gray-700 ">Currency Converter</h2>
       <div className=" border-b-2 mb-2"/>
       <div className=" grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
-        <CurrencyDropDown currencies={currencies}  title="From" currency={fromCurrency}
+        <CurrencyDropDown favorites={favorites} currencies={currencies}  title="From" currency={fromCurrency}
   setCurrency={setFromCurrency} handleFavorites={handleFavorites}/>
         <div className=" flex justify-center -mb-5 sm:mb-0">
           <button onClick={swapCurrencies} className=" p-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300">
           <HiArrowsRightLeft className=" text-xl text-gray-700"/>
           </button>
         </div>
-        <CurrencyDropDown currencies={currencies} title="To" currency={toCurrency}
+        <CurrencyDropDown  favorites={favorites}  currencies={currencies} title="To" currency={toCurrency}
   setCurrency={setToCurrency} handleFavorites={handleFavorites}/>
       </div>
+      <p className="  text-[red] animate-bounce"> {error}</p>
       <div className=" mt-4">
         <label
          htmlFor="amount"
