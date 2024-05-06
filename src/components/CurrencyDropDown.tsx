@@ -5,17 +5,17 @@ import { HiOutlineStar, HiStar } from 'react-icons/hi';
 type CurrencyDropDownProps = {
   currencies: string[];
   currency: string
-  selectedCurrency?: string;
+ 
   setCurrency: (currency: string) => void;
   favorites: string[];
-  handleFavorites?: (currency:React.MouseEvent<HTMLButtonElement>) => void;
+  handleFavorites: (currency:string) => void;
   title?: string;
 }
 
 const CurrencyDropDown= ({
   currencies,
   currency,
-  selectedCurrency,
+  
   setCurrency,
   favorites,
   handleFavorites,
@@ -52,7 +52,7 @@ const CurrencyDropDown= ({
             </option>
           ))}
         </select>
-        <button onClick={handleFavorites} className=' absolute inset-y-0 right-0 pr-5 flex items-center text-sm leading-5'>
+        <button onClick={() => handleFavorites(currency)} className=' absolute inset-y-0 right-0 pr-5 flex items-center text-sm leading-5'>
         {isFavorites(currency) ? <HiStar className=' text-yellow-600'/> :  <HiOutlineStar/> }
         
        
