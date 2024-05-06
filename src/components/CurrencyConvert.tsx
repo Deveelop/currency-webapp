@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react"
 import CurrencyDropDown from "./CurrencyDropDown"
 import { HiArrowsRightLeft } from "react-icons/hi2"
 import { CurrenciesApi } from "./api/currencies-api"
+
 const CurrencyConvert = () => {
     
   const {
@@ -19,7 +20,7 @@ const CurrencyConvert = () => {
     setFromCurrencyFunc: setFromCurrency} = CurrenciesApi()
    
     const favoritesFromLocalStorage = localStorage.getItem('favorites') as string;
-    const initialFavorites: string[] = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : ["USD", "INR"];
+    const initialFavorites: string[] = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : [""];
     const [favorites, setFavorites] = useState<string[]>(initialFavorites);
 
     const onChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,6 +72,7 @@ const CurrencyConvert = () => {
                     <button onClick={swapCurrencies} className="p-2 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300">
                         <HiArrowsRightLeft className="text-xl text-gray-700" />
                     </button>
+                    
                 </div>
                 <CurrencyDropDown
                     favorites={favorites}
