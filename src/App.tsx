@@ -12,7 +12,7 @@ function App() {
       
     </div>
   <Header/>
-  <div className="container">
+  <div className="container p-4">
     <CurrencyConvert/>
   </div>
     </>
