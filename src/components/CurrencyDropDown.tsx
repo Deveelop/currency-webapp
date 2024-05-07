@@ -38,8 +38,7 @@ const CurrencyDropDown= ({
         onChange={(e) => setCurrency(e.target.value)}
          className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
-          {/* remember to work on errors here */}
-          {/* also remember to add tooltip to the favorites button */}
+         
          {favorites?.map((fav) => (
           
         <option className=' bg-yellow-600 text-white ' value={fav} key={fav}>

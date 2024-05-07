@@ -55,6 +55,8 @@ const CurrencyConvert = () => {
         setToCurrency(temp);
     }
 
+    const isContain = () => convertedAmount.length > 1
+
     return (
         <div className="max-w-xl m-auto my-10 p-5 bg-white rounded-lg shadow-md">
             <h2 className="mb-5 text-2xl font-semibold text-gray-700">Currency Converter</h2>
@@ -83,7 +85,7 @@ const CurrencyConvert = () => {
                     handleFavorites={handleFavorites}
                 />
             </div>
-            <p className="text-red-500 animate-bounce">{error}</p>
+            {isContain() ? "" : <p className="text-red-500 animate-bounce">{error}</p>}
             <div className="mt-4">
                 <label htmlFor="amount" className="block text-sm font-medium text-gray-700">Amount:</label>
                 <input

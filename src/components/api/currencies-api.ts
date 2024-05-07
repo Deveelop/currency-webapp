@@ -15,6 +15,7 @@ export const CurrenciesApi = () => {
         setCurrencies(Object.keys(data));
     } catch (error) {
         console.error(error);
+       
     }
 }
 
