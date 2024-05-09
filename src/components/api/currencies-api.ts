@@ -2,7 +2,8 @@ import { useState } from "react";
 
 export const CurrenciesApi = () => {
   const [currencies, setCurrencies] = useState<string[]>([]);
-  const [fxRates, setFxRates] = useState<string[]>([])
+  const [fxRates, setFxRates] = useState('')
+  const [baseRates, setBaseRates] = useState('')
   const [amount, setAmount] = useState<number>(1);
   const [converting, setConverting] = useState<boolean>(false);
   const [convertedAmount, setConvertedAmount] = useState<string>("");
@@ -47,7 +48,7 @@ setError("Please enter valid amount...");
 
 const fetchFxRate = async () => {
 try{
-  const res = await fetch('https://api.frankfurter.app/latest?amount=1&from=GBP');
+  const res = await fetch('https://api.frankfurter.app/latest?amount=1&from=USD');
   if(!res.ok){
     if(res.status === 404){
       console.log('something went wrong')
@@ -57,7 +58,9 @@ try{
   }
   const data = await res.json();
   setFxRates(data.rates)
-  console.log(data.rates)
+  console.log(data)
+  setBaseRates(data.base)
+ 
 } catch(err){
   console.log(err)
 }
@@ -77,7 +80,8 @@ try{
    setToCurrencyFunc: setToCurrency,
    setFromCurrencyFunc: setFromCurrency,
    rateFetch: fetchFxRate,
-   rates: fxRates
+   rates: fxRates,
+   base: baseRates
 
   }
 }

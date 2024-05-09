@@ -1,5 +1,5 @@
 import {FaBars} from "react-icons/fa"
-
+import { Link } from "react-router-dom";
 const  Header = () => {
   return (
     <header className=" bg-[#323544] text-[#ccc]">
@@ -7,8 +7,8 @@ const  Header = () => {
         <span>Currencywise</span>
         <nav>
             <ul className=" flex space-x-6  ">
-            <li className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all "> Currency Converter</li>
-            <li  className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all"> Exchange Rate </li>
+            <Link to="/currency-converter" className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all "> Currency Converter</Link>
+            <Link to="/exchangerates"  className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all"> Exchange Rate </Link>
             <li  className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all">Investment Calculator</li>
             </ul>
         </nav>
