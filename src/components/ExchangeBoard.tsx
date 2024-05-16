@@ -1,36 +1,50 @@
-import { useEffect } from "react"
-import { CurrenciesApi } from "./api/currencies-api"
+import { useEffect } from "react";
+import { CurrenciesApi } from "./api/currencies-api";
 import FxItems from "./FxItems";
+
 function ExchangeBoard() {
-  const {rateFetch:fetchFxRate, rates, base} = CurrenciesApi();
+  const { rateFetch: fetchFxRate, rates, base, rateErr, } = CurrenciesApi();
 
   useEffect(() => {
-    fetchFxRate()
-   
-  }, [])
+    fetchFxRate();
+  }, []);
+
+    const isContain = () => rates.length > 1
+
 
   return (
-    <div>
-  
- 
-
-<div className=' lg:mt-40 mt-10'>
-     <h1 className=' font-bold text-2xl mb-5 lg:ml-0 ml-10 text-white'>Exchange Rate - Today</h1>
-     <div className=' grid lg:grid-cols-4 gap-5 place-items-center'>
-     {
-    Object.keys(rates).map((key) => (
-    <FxItems key={key} fxRates={String(rates[key as keyof typeof rates])} fxSymbol={key} baseRates={base}  />
-    
-    ))
-  }    
-     </div>
-
-     </div>
-
-  
-  
-    </div>
-  )
+    <>
+      <div className=" mt-10 p-5">
+        <h1 className=" font-bold text-2xl mb-5  text-white">
+          Exchange Rate - Today
+        </h1>
+        
+       { isContain() ? "" : <p className=" text-[red]">{rateErr}</p>}
+        <div className=" md:grid grid-cols-4 gap-3 space-y-3 md:space-y-0">
+          {Object.keys(rates).map((key) => (
+            
+            <FxItems
+              key={key}
+              fxRates={String(rates[key as keyof typeof rates])}
+              fxSymbol={key}
+              baseRates={base}
+              rateIcons={
+                rates[key] > 5 ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4">
+                    <path fill="#1EB589" fillRule="evenodd" d="M0 4l4-4 4 4z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4">
+                    <path fill="#DC414C" fillRule="evenodd" d="M0 0l4 4 4-4z" />
+                  </svg>
+                )
+              }
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default ExchangeBoard
+export default ExchangeBoard;

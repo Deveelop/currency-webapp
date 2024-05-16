@@ -17,7 +17,8 @@ const CurrencyConvert = () => {
     errorData: error,
     setAmountFunc: setAmount,
     setToCurrencyFunc: setToCurrency,
-    setFromCurrencyFunc: setFromCurrency} = CurrenciesApi()
+    setFromCurrencyFunc: setFromCurrency,
+} = CurrenciesApi()
    
     const favoritesFromLocalStorage = localStorage.getItem('favorites') as string;
     const initialFavorites: string[] = favoritesFromLocalStorage ? JSON.parse(favoritesFromLocalStorage) : [""];

@@ -10,13 +10,16 @@ export const CurrenciesApi = () => {
   const [toCurrency, setToCurrency] = useState<string>('');
   const [fromCurrency, setFromCurrency] = useState<string>('');
   const [error, setError] = useState<string>("");
+  const [rateError, setRateError] = useState<string>("");
+  
   const fetchCurrencies = async () => {
     try {
         const res = await fetch("https://api.frankfurter.app/currencies");
         const data = await res.json();
+        console.log(data)
         setCurrencies(Object.keys(data));
     } catch (error) {
-        console.error(error);
+     console.log(error)
        
     }
 }
@@ -40,7 +43,8 @@ setError("Please enter valid amount...");
       setConvertedAmount(data.rates[toCurrency] + " " + toCurrency)
       
   } catch (error) {
-      console.log(error)
+     
+      setError("An error occurred. Please try again later...")
   } finally {
       setConverting(false)
   }
@@ -51,18 +55,18 @@ try{
   const res = await fetch('https://api.frankfurter.app/latest?amount=1&from=USD');
   if(!res.ok){
     if(res.status === 404){
-      console.log('something went wrong')
+      setRateError('Failed to fetch')
     }else{
-      console.log('another thing went wrong')
+      setRateError('An error occurred. Please try again later...')
     }
   }
   const data = await res.json();
   setFxRates(data.rates)
-  console.log(data)
   setBaseRates(data.base)
  
 } catch(err){
-  console.log(err)
+
+  setRateError('An error occurred. Please try again later...')
 }
 
 }
@@ -81,7 +85,7 @@ try{
    setFromCurrencyFunc: setFromCurrency,
    rateFetch: fetchFxRate,
    rates: fxRates,
-   base: baseRates
-
+   base: baseRates,
+   rateErr: rateError,
   }
 }
