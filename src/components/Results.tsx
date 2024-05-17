@@ -15,15 +15,15 @@ const Results = ({userInput}:ResultsProps) => {
     
     console.log(resultsData)
   return (
-    <table id="result">
-        <thead>
+    <table className=" min-w-[50rem] mt-8 mb-8 ml-auto mr-auto p-4 table-fixed border-spacing-4 text-right">
+        <thead className=" text-sm text-[#83e6c0]">
             <th>Year</th>
             <th>Investment Value</th>
             <th>Interest (Year)</th>
             <th>Total Interest</th>
             <th>Invested Capital</th>
         </thead>
-         <tbody>
+         <tbody className=" text-sm text-[#c2e9e0]">
             {resultsData.map( yearData => {
                 const totalInterest = yearData.valueEndOfYear - yearData.annualInvestment * yearData.year - initialInvestment
                 const totalAmountInvested = yearData.valueEndOfYear - totalInterest;

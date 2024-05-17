@@ -21,15 +21,15 @@ function ExchangeBoard() {
         
        { isContain() ? "" : <p className=" text-[red]">{rateErr}</p>}
         <div className=" md:grid grid-cols-4 gap-3 space-y-3 md:space-y-0">
-          {Object.keys(rates).map((key) => (
-            
-            <FxItems
+          {Object.keys(rates).map((key: any) => {
+           
+            return <FxItems
               key={key}
               fxRates={String(rates[key as keyof typeof rates])}
               fxSymbol={key}
               baseRates={base}
               rateIcons={
-                rates[key] > 5 ? (
+                parseFloat(rates[key]) > 5 ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4">
                     <path fill="#1EB589" fillRule="evenodd" d="M0 4l4-4 4 4z" />
                   </svg>
@@ -40,7 +40,7 @@ function ExchangeBoard() {
                 )
               }
             />
-          ))}
+})}
         </div>
       </div>
     </>
