@@ -1,14 +1,16 @@
 import { useState } from "react";
 import imglogo from "../assets/investment-calculator-logo.png"
-import UserInput from "./UserInput";
-import Results from "./Results";
+import UserInput from "../components/UserInput";
+import Results from "../components/Results";
 const InvestmentCalc = () => {
   const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0
 })
+
+const inputIsValid = userInput.duration >= 1;
 
 const handlChange = (inputId:string, newValue:number) => {
   setUserInput(prevInput =>{
@@ -19,7 +21,7 @@ const handlChange = (inputId:string, newValue:number) => {
   })
 }
   return (
-    <div>
+    <div className=" p-4">
       
       <div className=" flex  items-center flex-col gap-3">
      <img src={imglogo} alt="dollar-logo" className=" w-20 h-20 object-contain bg-transparent"/>
@@ -27,7 +29,7 @@ const handlChange = (inputId:string, newValue:number) => {
       </div>
 
       <UserInput onChangeInput={handlChange} userInput={userInput}/>
-      <Results userInput={userInput} />
+     { inputIsValid ? <Results userInput={userInput}/> :  <p className=" flex justify-center text-[red]">Please enter a duration greater than zero</p>}
 
     </div>
   )

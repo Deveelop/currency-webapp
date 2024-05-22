@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react"
-import CurrencyDropDown from "./CurrencyDropDown"
+import CurrencyDropDown from "../components/CurrencyDropDown"
 import { HiArrowsRightLeft } from "react-icons/hi2"
-import { CurrenciesApi } from "./api/currencies-api"
+import { CurrenciesApi } from "../components/api/currencies-api"
 
 const CurrencyConvert = () => {
     

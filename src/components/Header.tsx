@@ -7,7 +7,7 @@ const  Header = () => {
         <span>Currencywise</span>
         <nav>
             <ul className=" flex space-x-6  ">
-            <Link to="/currency-converter" className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all "> Currency Converter</Link>
+            <Link to="/" className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all "> Currency Converter</Link>
             <Link to="/exchangerates"  className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all"> Exchange Rate </Link>
             <Link to="/investment-calculator"  className=" cursor-pointer hover:text-[#fff]  max-h-14 hover:border-b-2 transition-all">Investment Calculator</Link>
             </ul>

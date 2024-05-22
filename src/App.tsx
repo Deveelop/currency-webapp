@@ -1,8 +1,8 @@
 
-import CurrencyConvert from "./components/CurrencyConvert";
+import CurrencyConvert from "./pages/CurrencyConvert";
 import Header from "./components/Header";
-import ExchangeBoard from "./components/ExchangeBoard";
-import InvestmentCalc from "./components/InvestmentCalc";
+import ExchangeBoard from "./pages/ExchangeBoard";
+import InvestmentCalc from "./pages/InvestmentCalc";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 function App() {
  
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-      <Route  path="/currency-converter" element={ <CurrencyConvert />}/>
+      <Route  path="/" element={ <CurrencyConvert />}/>
       <Route  path="/exchangerates" element={ <ExchangeBoard />}/>
       <Route  path="/investment-calculator" element={ <InvestmentCalc />}/>
       

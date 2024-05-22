@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { CurrenciesApi } from "./api/currencies-api";
-import FxItems from "./FxItems";
+import { CurrenciesApi } from "../components/api/currencies-api";
+import FxItems from "../components/FxItems";
 
 function ExchangeBoard() {
   const { rateFetch: fetchFxRate, rates, base, rateErr, } = CurrenciesApi();
@@ -20,7 +20,7 @@ function ExchangeBoard() {
         </h1>
         
        { isContain() ? "" : <p className=" text-[red]">{rateErr}</p>}
-        <div className=" md:grid grid-cols-4 gap-3 space-y-3 md:space-y-0">
+        <div className=" sm:grid sm:grid-cols-3 gap-3 space-y-3 sm:space-y-0">
           {Object.keys(rates).map((key: any) => {
            
             return <FxItems
