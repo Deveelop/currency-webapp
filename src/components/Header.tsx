@@ -87,7 +87,7 @@ const Header = () => {
             </Link>
           </ul>
         </figure>
-        <figure onClick={handlenav}  className="w-[30%] h-full bg-black opacity-[0.6]"></figure>
+        <figure onClick={handlenav} className="w-[30%] h-full bg-black opacity-[0.6]"></figure>
       </nav>
     </header>
   );
