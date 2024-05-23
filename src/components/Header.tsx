@@ -71,17 +71,17 @@ const Header = () => {
           <ul>
             <Link onClick={handlenav}  to="/" className="flex flex-col text-white">
               <p className="font-md text-[--col] p-3"> </p>
-              <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
+              <div className="flex place-items-center p-3  border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Currency Converter</p>
               </div>
             </Link>
             <Link onClick={handlenav}  to="/exchangerates" className="flex flex-col text-white">
-              <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
+              <div className="flex place-items-center p-3 border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Exchange Rate</p>
               </div>
             </Link>
             <Link onClick={handlenav} to="/investment-calculator" className="flex flex-col text-white">
-              <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
+              <div className="flex place-items-center p-3 border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Investment Calculator</p>
               </div>
             </Link>
