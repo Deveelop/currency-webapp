@@ -25,18 +25,19 @@ const CurrencyDropDown= ({
   const isFavorites = (curr:string) => favorites.includes(curr)
 
   return (
-    <div>
+    <div className=''>
       <label
         htmlFor={title}
         className="block text-sm font-medium text-gray-700"
       >
         {title}
       </label>
-      <div className=" mt-1 relative">
+      <div className=' z-10'>
+      <div className=" mt-1 relative ">
         <select
         value={currency}
         onChange={(e) => setCurrency(e.target.value)}
-         className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+         className=" w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
          
          {favorites?.map((fav) => (
@@ -56,6 +57,7 @@ const CurrencyDropDown= ({
         
        
         </button>
+      </div>
       </div>
     </div>
   );
