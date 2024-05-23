@@ -75,12 +75,12 @@ const Header = () => {
                 <p className=" cursor-pointer ml-3 ">Currency Converter</p>
               </div>
             </Link>
-            <Link to="/about" className="flex flex-col text-yellow-950">
+            <Link to="/exchangerates" className="flex flex-col text-yellow-950">
               <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Exchange Rate</p>
               </div>
             </Link>
-            <Link to="/mentorship" className="flex flex-col text-yellow-950">
+            <Link to="/investment-calculator" className="flex flex-col text-yellow-950">
               <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Investment Calculator</p>
               </div>
