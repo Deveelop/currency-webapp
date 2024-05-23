@@ -42,7 +42,7 @@ const Header = () => {
             onClick={handlenav}
             className="sm:hidden hover:text-[--col] zi-10"
           >
-            {!nav ? "" : <FaBars />}
+            {!nav ? "" : <FaBars className=" text-white" />}
           </button>
         </nav>
       </div>
@@ -53,8 +53,8 @@ const Header = () => {
             : "fixed hidden sm:hidden "
         }
       >
-        <figure className="w-[70%] h-full pb-4 bg-neutral-100 overflow-y-scroll">
-          <div className="flex justify-between p-4 pl-3 mt-1 border-b-2 border-gray-400 text-yellow-950">
+        <figure className="w-[70%] h-full pb-4 bg-[#323544] overflow-y-scroll">
+          <div className="flex justify-between p-4 pl-3 mt-1 border-b-2 border-gray-400 text-black">
             <Link to="/" className=" bg-white rounded">
               <span>
               CurrenciWise
@@ -64,30 +64,30 @@ const Header = () => {
               onClick={handlenav}
               className="sm:hidden hover:text-[--col] zi-10"
             >
-              {!nav ? <FaTimes /> : <FaBars />}
+              {!nav ? <FaTimes className=" text-white" /> : <FaBars />}
             </button>
           </div>
 
           <ul>
-            <Link to="/" className="flex flex-col text-yellow-950">
+            <Link onClick={handlenav}  to="/" className="flex flex-col text-white">
               <p className="font-md text-[--col] p-3"> </p>
               <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Currency Converter</p>
               </div>
             </Link>
-            <Link to="/exchangerates" className="flex flex-col text-yellow-950">
+            <Link onClick={handlenav}  to="/exchangerates" className="flex flex-col text-white">
               <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Exchange Rate</p>
               </div>
             </Link>
-            <Link to="/investment-calculator" className="flex flex-col text-yellow-950">
+            <Link onClick={handlenav} to="/investment-calculator" className="flex flex-col text-white">
               <div className="flex place-items-center p-3 hover:bg-[#3f6eb1] border-b-[1px] font-thin">
                 <p className=" cursor-pointer ml-3 ">Investment Calculator</p>
               </div>
             </Link>
           </ul>
         </figure>
-        <figure className="w-[30%] h-full bg-black opacity-[0.6]"></figure>
+        <figure onClick={handlenav}  className="w-[30%] h-full bg-black opacity-[0.6]"></figure>
       </nav>
     </header>
   );
